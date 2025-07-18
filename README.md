@@ -8,7 +8,7 @@
 - Guzzle Requests
 
 ## Installation
-composer require arunchaitanyajami/spotify-web-api-sdk
+composer require arunchaitanyajami/spotify-webapi-sdk
 
 ## Doesnt have token?
 
