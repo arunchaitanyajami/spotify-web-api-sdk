@@ -1,7 +1,5 @@
 # PHP SDK For Spotify Web Api
 
-<img src="https://raw.githubusercontent.com/kirilkirkov/Spotify-WebApi-PHP-SDK/master/.github/logo%402x.png" alt="Spotify PHP" width="380px" />
-
 <p>requires php >= 7.2</p>
 
 - Integrated Pagination
@@ -10,20 +8,17 @@
 - Guzzle Requests
 
 ## Installation
-composer require kirilkirkov/spotify-webapi-sdk
-
-<p>Example usage with code:</p>
-https://github.com/kirilkirkov/Spotify-WebApi-PHP-SDK/wiki/Example-Usage-with-Code
+composer require arunchaitanyajami/spotify-web-api-sdk
 
 ## Doesnt have token?
 
 ### Option 1 - Get access token with client credentials
 
 ```
-use SpotifyWebAPI\SpotifyWebApi;
+use SpotifyWebApiSdk\SpotifyWebApiSdk;
 
 try {
-    $spotifyWebApi = new SpotifyWebApi();
+    $spotifyWebApi = new SpotifyWebApiSdk();
     $token_obj = $spotifyWebApi->getAccessTokenWithCredentials(
         'CLIENT_ID',
         'CLIENT_SECRET'
@@ -41,10 +36,10 @@ Before make requests you must add yours Redirect URIs to https://developer.spoti
 
 Get redirect url for code:
 ```
-use SpotifyWebAPI\SpotifyWebApi;
+use SpotifyWebApiSdk\SpotifyWebApiSdk;
 
 try {
-    $spotifyWebApi = new SpotifyWebApi([
+    $spotifyWebApi = new SpotifyWebApiSdk([
         'clientId' => 'CLIENT_ID',
         'clientSecret' => 'CLIENT_SECRET',
     ]);
@@ -59,10 +54,10 @@ try {
 
 After signup in spotify you will be redirected back to provided above callback url (http://yoursite.com/callback) with parameter **$_GET['code']** with the code that can get token with following command:
 ```
-use SpotifyWebAPI\SpotifyWebApi;
+use SpotifyWebApiSdk\SpotifyWebApiSdk;
 
 try {
-    $spotifyWebApi = new SpotifyWebApi();
+    $spotifyWebApi = new SpotifyWebApiSdk();
     $tokens = $spotifyWebApi->getAccessTokenWithCode(
         'YOUR_CODE',
         'http://yoursite.com/callback'
@@ -80,10 +75,10 @@ Spotify tokens are valid 1 hour. If your token is expired and you make a call, t
 If you set $spotifyWebApi->returnNewTokenIfIsExpired(true); before your request calls, if access token is expired will be returned from the query, object with the new access_token, then you can save it in database and recall request with a fresh Access token. 
 You can also generate access token with refresh token manually with
 ```
-use SpotifyWebAPI\SpotifyWebApi;
+use SpotifyWebApiSdk\SpotifyWebApiSdk;
 
 try {
-    $spotifyWebApi = new SpotifyWebApi([
+    $spotifyWebApi = new SpotifyWebApiSdk([
         'clientId' => 'CLIENT_ID',
         'clientSecret' => 'CLIENT_SECRET',
         'accessToken' => $oldAccessToken,
@@ -103,13 +98,3 @@ It is good practise to add ip of the api that you call in the hosts file in your
 
 Can increase your execution time of scripts 
 ini_set('max_execution_time', XXX); and set_time_limit(XXX);
-
-### Functions
-In the wiki of this repository you can find all functions available in this sdk (all the ones supported by Spotify have been integrated so far)
-- https://github.com/kirilkirkov/Spotify-WebApi-PHP-SDK/wiki/Functions-and-examples
-- https://github.com/kirilkirkov/Spotify-WebApi-PHP-SDK/wiki/Pagination Integrated Pagination Example
-
-## Donate
-<p>If this project help you reduce time to develop, you can give me a cup of coffee to continue its development. Thank you! :)</p>
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7U9TVUV3URTK6)
