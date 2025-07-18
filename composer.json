@@ -1,0 +1,22 @@
+{
+    "name": "arunchaitanyajami/spotify-web-api-sdk",
+    "description": "Spotify WebApi PHP Library",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["spotify", "spotify-api", "spotify-web-api", "spotify-php-sdk"],
+    "authors": [
+      {
+        "name": "Arun Chaitanya Jami",
+        "email": "arunchaitanyajami@gmail.com"
+      }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "guzzlehttp/guzzle": "^7.9"
+    },
+    "autoload": {
+        "psr-4": {
+          "SpotifyWebApiSdk\\": "src"
+        }
+      }
+  }
